@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+
+
+public class MainClass {
+ 
+   public static void main(String[] args) {
+    ArrayList<Integer> myArray = new ArrayList<Integer>();
+    insertArray(myArray,15);
+   }
+  
+   public static void insertArray(ArrayList<Integer> myArray,int eleman){
+   
+    myArray.add(eleman);
+   
+   }
+  
+   public static int searchArray(ArrayList<Integer> myArray,int eleman){
+    int i;
+   
+    for(i=0;i<myArray.size();i++){
+     if(eleman==myArray.get(i)){
+      return 1;
+     }
+    }
+ return 0;
+   }
+  
+   public static int deleteArray(ArrayList<Integer> myArray,int eleman){
+    for(int i=0;i<myArray.size();i++){
+     if(eleman==myArray.get(i)){
+      myArray.remove(i);
+      return 1;
+     }
+    }
+ return 0;
+   
+   }
+  
+   public static void writeArray(ArrayList<Integer> myArray){
+    for(int i=0;i<myArray.size();i++){
+     System.out.println(myArray.get(i));
+    }
+   }
+}
