@@ -1,0 +1,57 @@
+public class AltKume {
+    
+    private String[] altKumeBul(String dizi[]){
+        int diziElemanSayisi=dizi.length;
+        int altKumeSayisi=(int)Math.pow(2, diziElemanSayisi);
+        String altKume[]=new String[altKumeSayisi];
+        int durum=0;
+        altKume[0]="{}";
+        boolean bosKontrol=true;
+        for (int i = 0; i < altKumeSayisi; i++) {
+            int araSayi=i;
+            bosKontrol=true;
+            for (int j = 0; j < diziElemanSayisi; j++) {
+                durum=araSayi & 1;
+                if(durum==1){
+                    if(bosKontrol){
+                        altKume[i]=" "+dizi[j];
+                        bosKontrol=false;
+                    }else {
+                    altKume[i]+=" "+dizi[j];
+                    }
+                }
+                araSayi>>=1;
+            }
+        }
+        return altKume;
+    }
+    void main(){
+        String dizi[]={"99","21","52"};
+        System.out.print("dizimiz:");
+        yazdir(dizi);
+        
+        altKumeYazdir(altKumeBul(dizi));
+    }
+    private void yazdir(String dizi[]){
+        for (int i = 0; i < dizi.length; i++) {
+            System.out.print(dizi[i]);
+            System.out.print(" ");
+        }
+        System.out.print("\n\n");
+    }
+    private void altKumeYazdir(String dizi[]){
+    	System.out.print("Alt küme sayısı=");
+    	
+    	System.out.println(dizi.length);
+    	System.out.println("alt kümelerimiz:");
+        for (int i = 0; i < dizi.length; i++) {
+            System.out.println(dizi[i]);   
+        }
+           
+
+    }
+    public static void main(String[] args) {
+        AltKume odev=new AltKume();
+        odev.main();
+    }
+}
